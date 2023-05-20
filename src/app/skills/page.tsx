@@ -2,11 +2,10 @@
 
 import { Page } from "@/components/Page";
 
-export default function Home() {
+export default function Skills() {
   return (
     <Page>
-      <p>Home</p>
-      <p>Test</p>
+      <p>Skills</p>
     </Page>
   )
 }
