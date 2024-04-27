@@ -76,7 +76,7 @@ pub async fn get_emails(
 
     let query_result = sqlx::query!(
         r#"
-            SELECT source, subject, contents, ip_address
+            SELECT source, subject, contents, ip_address, verified
             FROM emails
             "#,
     )
@@ -86,7 +86,9 @@ pub async fn get_emails(
     if let Err(_) = query_result {
         return Err(BadRequest("Failed to fetch emails"));
     }
+
     let res = query_result.unwrap();
+
     if res.is_empty() {
         return Err(BadRequest("No emails found"));
     }
@@ -97,6 +99,7 @@ pub async fn get_emails(
             from: row.source.clone(),
             subject: row.subject.clone(),
             body: row.contents.clone(),
+            verified: row.verified.clone(),
         })
         .collect();
 

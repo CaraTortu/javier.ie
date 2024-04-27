@@ -1,5 +1,8 @@
+use std::str::FromStr;
+
 use rocket::{fairing, Build, Rocket};
 use rocket_db_pools::{sqlx, Connection, Database};
+use sqlx::types::Uuid;
 
 #[derive(Database)]
 #[database("javierie")]
@@ -18,9 +21,17 @@ pub async fn run_migrations(rocket: Rocket<Build>) -> fairing::Result {
 }
 
 pub async fn is_logged_in(mut db: Connection<DB>, token: &str) -> bool {
+    let token = Uuid::from_str(token);
+
+    if let Err(_) = token {
+        return false;
+    }
+
+    let token = token.unwrap();
+
     let query_result = sqlx::query!(
         r#"
-            SELECT * FROM sessions WHERE token = $1
+            SELECT * FROM sessions WHERE id = $1
         "#,
         token
     )
@@ -28,7 +39,7 @@ pub async fn is_logged_in(mut db: Connection<DB>, token: &str) -> bool {
     .await;
 
     match query_result {
-        Ok(e) => e.token == token,
+        Ok(e) => e.id == token,
         Err(_) => false,
     }
 }

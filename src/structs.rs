@@ -33,6 +33,7 @@ pub struct Email {
     pub from: String,
     pub subject: String,
     pub body: String,
+    pub verified: bool,
 }
 
 // Struct for authentication
@@ -47,7 +48,7 @@ impl<'r> FromRequest<'r> for Auth {
     type Error = BadRequest<&'static str>;
 
     async fn from_request(req: &'r Request<'_>) -> Outcome<Self, Self::Error> {
-        let auth_header = req.headers().get_one("Authorization");
+        let auth_header = req.cookies().get("session");
         let db = req.guard::<Connection<DB>>().await.unwrap();
 
         let unathorized = Outcome::Success(Self {
@@ -55,15 +56,9 @@ impl<'r> FromRequest<'r> for Auth {
         });
 
         match auth_header {
-            Some(header) => {
-                if !header.starts_with("Bearer ") {
-                    return unathorized;
-                }
-
-                Outcome::Success(Self {
-                    is_logged_in: is_logged_in(db, header.strip_prefix("Bearer ").unwrap()).await,
-                })
-            }
+            Some(header) => Outcome::Success(Self {
+                is_logged_in: is_logged_in(db, header.value()).await,
+            }),
             None => unathorized,
         }
     }
