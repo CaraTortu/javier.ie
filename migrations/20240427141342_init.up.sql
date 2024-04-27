@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS emails (
+    id serial PRIMARY KEY,
+    source TEXT NOT NULL,
+    subject TEXT NOT NULL,
+    contents TEXT NOT NULL,
+    ip_address TEXT NOT NULL,
+    verified BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+)
