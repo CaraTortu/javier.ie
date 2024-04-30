@@ -1,1 +1,0 @@
-import"./ViewTransitions.astro_astro_type_script_index_0_lang.BMqMAa2A.js";const e=document.getElementById("contact_form");e.addEventListener("submit",function(t){t.preventDefault(),alert("Message sent successfully!")});

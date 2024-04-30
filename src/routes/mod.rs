@@ -5,7 +5,7 @@ use regex::Regex;
 use rocket::{
     http::Status,
     response::{self, Responder},
-    serde::Deserialize,
+    serde::{Deserialize, Serialize},
     Response,
 };
 use sqlx::types::Uuid;

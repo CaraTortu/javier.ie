@@ -1,9 +1,17 @@
 use super::*;
 
+#[derive(Serialize, Deserialize)]
+#[serde(crate = "rocket::serde")]
+pub struct EmailInput {
+    pub from: String,
+    pub subject: String,
+    pub body: String,
+}
+
 #[post("/email", data = "<email>", format = "json")]
 pub async fn send_email<'a>(
     mut db: Connection<DB>,
-    email: Json<Email>,
+    email: Json<EmailInput>,
     ip: Ipv4,
 ) -> Result<String, BadRequest<&'static str>> {
     // Verify that no fields are empty
