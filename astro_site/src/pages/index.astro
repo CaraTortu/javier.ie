@@ -4,10 +4,10 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="javier.ie">
     <div
-        class="flex flex-col gap-4 h-screen w-screen items-center justify-center select-none"
+        class="flex flex-col gap-4 h-screen w-screen items-center justify-center select-none px-4"
     >
-        <h1 class="text-5xl font-bold">👋 Hi, I'm Javier</h1>
-        <p class="text-2xl text-gray-300 italic">
+        <h1 class="text-3xl md:text-5xl font-bold">👋 Hi, I'm Javier</h1>
+        <p class="text-2xl text-gray-300 italic text-center">
             I'm a pentester and software developer based in Ireland.
         </p>
         <div
@@ -35,11 +35,11 @@ import Layout from "../layouts/Layout.astro";
         </div>
     </div>
     <div
-        class="flex flex-col gap-4 h-screen border-t border-white w-screen items-center select-none pt-8 mb-20"
+        class="flex flex-col gap-4 min-h-screen border-t border-white w-screen items-center select-none pt-8 mb-20"
     >
         <h1 class="text-3xl font-bold mb-12">🔨 What I do</h1>
         <div
-            class="grid grid-cols-2 gap-6 w-3/4 *:p-4 *:border *:border-gray-700 *:rounded-xl"
+            class="grid grid-cols-1 md:grid-cols-2 gap-6 w-3/4 *:p-4 *:border *:border-gray-700 *:rounded-xl"
         >
             <div class="flex flex-col gap-2">
                 <h2 class="text-2xl font-bold">🕵️ Pentesting</h2>
@@ -49,7 +49,7 @@ import Layout from "../layouts/Layout.astro";
                     systems.
                 </p>
                 <div
-                    class="text-gray-300 grid grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
+                    class="text-gray-300 grid grid-cols-2 md:grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
                 >
                     <p>Linux</p>
                     <p>Windows</p>
@@ -68,7 +68,7 @@ import Layout from "../layouts/Layout.astro";
                     technologies like the following.
                 </p>
                 <div
-                    class="text-gray-300 grid grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
+                    class="text-gray-300 grid grid-cols-2 md:grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
                 >
                     <p>Node.js</p>
                     <p>React</p>
@@ -87,7 +87,7 @@ import Layout from "../layouts/Layout.astro";
                     technology, a new programming language, or a new skill.
                 </p>
                 <div
-                    class="text-gray-300 grid grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
+                    class="text-gray-300 grid grid-cols-2 md:grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
                 >
                     <p>AI</p>
                     <p>Physics</p>
@@ -106,7 +106,7 @@ import Layout from "../layouts/Layout.astro";
                     social skills to go along with it
                 </p>
                 <div
-                    class="text-gray-300 grid grid-cols-3 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
+                    class="text-gray-300 grid grid-cols-1 md:grid-cols-3 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
                 >
                     <p>Leadership</p>
                     <p>Communication</p>
@@ -118,117 +118,117 @@ import Layout from "../layouts/Layout.astro";
                 <p class="text-gray-600 ml-0 italic">and more!</p>
             </div>
         </div>
-        </div>
+    </div>
+    <div
+        class="my-12 flex flex-col gap-4 border-t border-white w-screen items-center select-none py-8 h-fit"
+    >
+        <h1 class="text-3xl font-bold mb-12">📚 Projects</h1>
         <div
-            class="my-12 flex flex-col gap-4 border-t border-white w-screen items-center select-none py-8 h-fit"
+            class="grid grid-cols-1 md:grid-cols-2 gap-6 w-3/4 *:p-4 *:border *:border-gray-700 *:rounded-xl"
         >
-            <h1 class="text-3xl font-bold mb-12">📚 Projects</h1>
-            <div
-                class="grid grid-cols-2 gap-6 w-3/4 *:p-4 *:border *:border-gray-700 *:rounded-xl"
-            >
-                <div class="flex flex-col gap-2">
-                    <a
-                        href="https://github.com/CaraTortu/team_project_2024"
-                        target="_blank"
-                        class="text-2xl font-bold flex items-start"
+            <div class="flex flex-col gap-2">
+                <a
+                    href="https://github.com/CaraTortu/team_project_2024"
+                    target="_blank"
+                    class="text-2xl font-bold flex items-start"
+                >
+                    <p>GP Booking system</p>
+                    <svg
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-width="0"
+                        viewBox="0 0 24 24"
+                        height="20px"
+                        width="20px"
+                        xmlns="http://www.w3.org/2000/svg"
                     >
-                        <p>GP Booking system</p>
-                        <svg
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-width="0"
-                            viewBox="0 0 24 24"
-                            height="20px"
-                            width="20px"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z"
-                                fill="currentColor"></path>
-                        </svg>
-                    </a>
-                    <p class="text-gray-300">
-                        A booking system for a GP practice that allows patients
-                        to book appointments online and receive reminders, as
-                        well as allowing doctors to manage their appointments.
-                    </p>
-                    <div
-                        class="text-gray-300 grid grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
-                    >
-                        <p>Node.js</p>
-                        <p>React</p>
-                        <p>Next.js</p>
-                        <p>tRPC</p>
-                        <p>PostgreSQL</p>
-                    </div>
+                        <path
+                            d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </a>
+                <p class="text-gray-300">
+                    A booking system for a GP practice that allows patients to
+                    book appointments online and receive reminders, as well as
+                    allowing doctors to manage their appointments.
+                </p>
+                <div
+                    class="text-gray-300 grid grid-cols-2 md:grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
+                >
+                    <p>Node.js</p>
+                    <p>React</p>
+                    <p>Next.js</p>
+                    <p>tRPC</p>
+                    <p>PostgreSQL</p>
                 </div>
-                <div class="flex flex-col gap-2">
-                    <a
-                        href="https://github.com/CaraTortu/javrdis"
-                        target="_blank"
-                        class="text-2xl font-bold flex items-start"
+            </div>
+            <div class="flex flex-col gap-2">
+                <a
+                    href="https://github.com/CaraTortu/javrdis"
+                    target="_blank"
+                    class="text-2xl font-bold flex items-start"
+                >
+                    <p>Jarvdis</p>
+                    <svg
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-width="0"
+                        viewBox="0 0 24 24"
+                        height="20px"
+                        width="20px"
+                        xmlns="http://www.w3.org/2000/svg"
                     >
-                        <p>Jarvdis</p>
-                        <svg
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-width="0"
-                            viewBox="0 0 24 24"
-                            height="20px"
-                            width="20px"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z"
-                                fill="currentColor"></path>
-                        </svg>
-                    </a>
-                    <p class="text-gray-300">
-                        A clone of redis written in Rust, with a focus on
-                        performance and security. (Work in progress)
-                    </p>
-                    <div
-                        class="text-gray-300 grid grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
-                    >
-                        <p>Rust</p>
-                        <p>Tokio</p>
-                        <p>Raw TCP</p>
-                    </div>
+                        <path
+                            d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </a>
+                <p class="text-gray-300">
+                    A clone of redis written in Rust, with a focus on
+                    performance and security. (Work in progress)
+                </p>
+                <div
+                    class="text-gray-300 grid grid-cols-2 md:grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
+                >
+                    <p>Rust</p>
+                    <p>Tokio</p>
+                    <p>Raw TCP</p>
                 </div>
-                <div class="flex flex-col gap-2">
-                    <a
-                        href="https://github.com/CaraTortu/AI_CA2"
-                        target="_blank"
-                        class="text-2xl font-bold flex items-start"
+            </div>
+            <div class="flex flex-col gap-2">
+                <a
+                    href="https://github.com/CaraTortu/AI_CA2"
+                    target="_blank"
+                    class="text-2xl font-bold flex items-start"
+                >
+                    <p>AI Cancer detection</p>
+                    <svg
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-width="0"
+                        viewBox="0 0 24 24"
+                        height="20px"
+                        width="20px"
+                        xmlns="http://www.w3.org/2000/svg"
                     >
-                        <p>AI Cancer detection</p>
-                        <svg
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-width="0"
-                            viewBox="0 0 24 24"
-                            height="20px"
-                            width="20px"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z"
-                                fill="currentColor"></path>
-                        </svg>
-                    </a>
-                    <p class="text-gray-300">
-                        An AI model capable of classifying images of malignant
-                        or bening tumours with a high accuracy of >=95%.
-                    </p>
-                    <div
-                        class="text-gray-300 grid grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
-                    >
-                        <p>Python</p>
-                        <p>Scikit-learn</p>
-                        <p>Matplotlib</p>
-                        <p>Seaborn</p>
-                    </div>
+                        <path
+                            d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </a>
+                <p class="text-gray-300">
+                    An AI model capable of classifying images of malignant or
+                    bening tumours with a high accuracy of >=95%.
+                </p>
+                <div
+                    class="text-gray-300 grid grid-cols-2 md:grid-cols-5 gap-2 place-content-center mt-4 *:py-1 *:px-2 *:border-2 *:border-white *:rounded-xl *:text-center"
+                >
+                    <p>Python</p>
+                    <p>Scikit-learn</p>
+                    <p>Matplotlib</p>
+                    <p>Seaborn</p>
                 </div>
+            </div>
             <script>
                 const scroll_button = document.getElementById(
                     "read_more_btn",
