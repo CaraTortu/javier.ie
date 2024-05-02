@@ -6,16 +6,17 @@ import Layout from "../layouts/Layout.astro";
     <div class="background overflow-hidden">
         <div class="container">
             <div class="screen">
-                <div class="relative px-8 py-4 w-full">
+                <div
+                    class="relative px-8 py-4 w-full bg-stone-800 mb-2 rounded-t-lg"
+                >
                     <div class="">
                         <div class="screen-header-button close"></div>
                         <div class="screen-header-button maximize"></div>
                         <div class="screen-header-button minimize"></div>
                     </div>
-                    <div class="absolute left-1/2 m-auto">Contact me!</div>
                 </div>
                 <div
-                    class="screen-body flex flex-col justify-center items-center pt-8 mb-0"
+                    class="screen-body flex flex-col justify-center items-center mb-0"
                 >
                     <div class="left text-3xl">
                         <span>CONTACT ME</span>
@@ -48,6 +49,11 @@ import Layout from "../layouts/Layout.astro";
                                 <button class="app-form-button">CANCEL</button>
                                 <button class="app-form-button">SEND</button>
                             </div>
+                            <p class="text-sm italic text-gray-400 mt-10">
+                                Please note we save IP addresses to avoid SPAM.
+                                If you have any problems, please email
+                                contact@javier.ie directly
+                            </p>
                         </form>
                     </div>
                 </div>
@@ -195,7 +201,7 @@ import Layout from "../layouts/Layout.astro";
 
     .screen-body-item {
         flex: 1;
-        padding: 50px 50px 25px 50px;
+        padding: 20px 50px 25px 50px;
     }
 
     .screen-body-item.left {

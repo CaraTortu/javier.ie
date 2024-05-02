@@ -1,3 +1,5 @@
+use crate::mail_util;
+
 use super::*;
 
 #[derive(Serialize, Deserialize)]
@@ -65,6 +67,12 @@ pub async fn send_email<'a>(
     }
 
     println!("Email verification token: {}", email_id);
+
+    let res = mail_util::send_verification_email(&email.from, &email_id.to_string()).await;
+
+    if let Err(_) = res {
+        return Err(BadRequest("Failed to send email"));
+    }
 
     Ok(format!(
         "Please verify your email address by clicking the link in the email sent to {}",

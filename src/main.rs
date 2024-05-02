@@ -1,4 +1,5 @@
 mod db;
+mod mail_util;
 mod routes;
 mod structs;
 

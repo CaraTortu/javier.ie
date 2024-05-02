@@ -11,6 +11,7 @@ use rocket::{
 use sqlx::types::Uuid;
 
 use super::db::DB;
+use super::mail_util::send_email;
 use super::structs::{Auth, Email, Ipv4};
 
 pub mod email;
