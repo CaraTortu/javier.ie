@@ -3,29 +3,24 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Contact">
-    <div class="background">
+    <div class="background overflow-hidden">
         <div class="container">
             <div class="screen">
-                <div class="screen-header">
-                    <div class="screen-header-left">
+                <div class="relative px-8 py-4 w-full">
+                    <div class="">
                         <div class="screen-header-button close"></div>
                         <div class="screen-header-button maximize"></div>
                         <div class="screen-header-button minimize"></div>
                     </div>
-                    <div class="screen-header-right">
-                        <div class="screen-header-ellipsis"></div>
-                        <div class="screen-header-ellipsis"></div>
-                        <div class="screen-header-ellipsis"></div>
-                    </div>
+                    <div class="absolute left-1/2 m-auto">Contact me!</div>
                 </div>
-                <div class="screen-body">
-                    <div class="screen-body-item left">
-                        <div class="app-title">
-                            <span>CONTACT</span>
-                            <span>ME</span>
-                        </div>
+                <div
+                    class="screen-body flex flex-col justify-center items-center pt-8 mb-0"
+                >
+                    <div class="left text-3xl">
+                        <span>CONTACT ME</span>
                     </div>
-                    <div class="screen-body-item">
+                    <div class="screen-body-item w-full">
                         <form class="app-form" id="contact_form">
                             <div class="app-form-group">
                                 <input
@@ -43,7 +38,7 @@ import Layout from "../layouts/Layout.astro";
                                     id="subject"
                                 />
                             </div>
-                            <div class="app-form-group message">
+                            <div class="app-form-group">
                                 <textarea
                                     class="app-form-control h-[20vh]"
                                     id="message"
@@ -108,11 +103,11 @@ import Layout from "../layouts/Layout.astro";
         transition-duration: 0.3s;
     }
 
-    body,
     button,
-    input {
+    input,
+    textarea {
         font-family: "Montserrat", sans-serif;
-        font-weight: 700;
+        font-weight: 400;
         letter-spacing: 1.4px;
     }
 
@@ -148,6 +143,7 @@ import Layout from "../layouts/Layout.astro";
 
     .screen-header {
         display: flex;
+        flex-direction: column;
         align-items: center;
         padding: 10px 20px;
         background: #4d4d4f;
@@ -194,11 +190,12 @@ import Layout from "../layouts/Layout.astro";
 
     .screen-body {
         display: flex;
+        flex-direction: column;
     }
 
     .screen-body-item {
         flex: 1;
-        padding: 50px;
+        padding: 50px 50px 25px 50px;
     }
 
     .screen-body-item.left {
@@ -275,7 +272,7 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .app-form-button:hover {
-        color: #b9134f;
+        color: #b9b9b9;
     }
 
     .credits {

@@ -1,1 +1,0 @@
-import"./ViewTransitions.astro_astro_type_script_index_0_lang.BMqMAa2A.js";const o=document.getElementById("read_more_btn");window.addEventListener("scroll",()=>{window.scrollY>0?o.classList.add("opacity-0"):o.classList.remove("opacity-0")});o.addEventListener("click",()=>{window.scrollTo({top:window.innerHeight-30,behavior:"smooth"})});
