@@ -1,0 +1,16 @@
+[phases.setup]
+  nixPkgs = ['bun', 'rustc', 'cargo']
+  aptPkgs = ['build-essential']
+
+[phases.build]
+  cmds = [
+    'cd astro_site',
+    'bun install',
+    'bun run build',
+    'cd ..',
+    'cargo build --release --jobs 1'
+  ]
+
+[start]
+  cmd = './target/release/website'
+  port = 8000
