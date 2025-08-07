@@ -209,6 +209,27 @@
             {/each}
         </div>
     </section>
+    <Separator />
+    <section
+        class="min-h-svh flex flex-col items-center justify-center gap-12 px-4 md:px-8 py-12"
+    >
+        <h1
+            class="text-4xl md:text-5xl font-bold tracking-tight animate-slide-up"
+        >
+            ✉️ Contact Me
+        </h1>
+        <div class="flex flex-col items-center gap-4 text-gray-200">
+            <p class="text-lg md:text-xl">
+                Feel free to reach out to me via email at
+                <a
+                    href="mailto:contact@javier.ie"
+                    class="text-orange-400 hover:underline"
+                >
+                    contact@javier.ie
+                </a>
+            </p>
+        </div>
+    </section>
 </main>
 
 <style>
