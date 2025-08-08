@@ -10,6 +10,10 @@
             href: "https://github.com/CaraTortu",
         },
         {
+            name: "LinkedIn",
+            href: "https://www.linkedin.com/in/javier-díaz-094b33269",
+        },
+        {
             name: "Blog",
             href: "https://blog.javier.ie",
         },

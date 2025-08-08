@@ -1,5 +1,6 @@
 <script lang="ts">
     import { scrollTo, scrollRef } from "svelte-scrolling";
+    import Saos from "saos";
     import { ArrowDown, ArrowUpLeft } from "@lucide/svelte";
     import NavBar from "./lib/NavBar.svelte";
     import Separator from "./lib/Separator.svelte";
@@ -50,7 +51,7 @@
         {
             name: "LC Computer Science",
             description:
-                "A website to help students with their leaving certificate copmuter science subject.",
+                "A website to help students with their leaving certificate computer science subject.",
             tags: ["React", "Next.js", "tRPC", "PostgreSQL", "BetterAuth"],
             url: "https://github.com/CaraTortu/lccomputerscience",
         },
@@ -86,78 +87,198 @@
 </script>
 
 <main
-    class="flex flex-col min-h-screen bg-black text-white items-center select-none"
+    class="flex flex-col min-h-screen bg-gradient-to-b from-gray-900 to-black text-white items-center select-none font-sans"
 >
-    <NavBar />
+    <div class="sticky top-0 z-50 w-full">
+        <NavBar />
+    </div>
     <CatShove />
     <section
-        class="h-svh flex flex-col items-center justify-center gap-3 px-4 text-center"
+        class="h-svh flex flex-col items-center justify-center gap-6 px-4 md:px-8 text-center"
     >
-        <h1 class="text-4xl md:text-5xl font-bold"><Wave /> Hi, I'm Javier</h1>
-        <p class="italic text-lg md:text-2xl text-gray-300">
+        <h1
+            class="text-4xl md:text-6xl font-extrabold tracking-tight animate-fade-in"
+        >
+            <Wave /> Hi, I'm Javier
+        </h1>
+        <p
+            class="italic text-lg md:text-2xl text-gray-200 max-w-2xl leading-relaxed"
+        >
             I'm a software engineer and cyber security researcher based in
             Ireland.
         </p>
         <button
             use:scrollTo={"whatIDo"}
-            class="rounded-full border-2 border-white hover:border-orange-300 px-4 py-2 flex gap-2 items-center justify-center group mt-4 hover:shadow-md hover:translate-y-[-0.25rem] shadow-orange-300 transition-all duration-200"
+            class="rounded-full bg-orange-500 text-white px-6 py-3 flex gap-3 items-center justify-center group mt-6 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/50 hover:-translate-y-1 transition-all duration-300 text-lg font-medium"
         >
             <ArrowDown
-                class="group-hover:animate-pulse size-5 group-hover:text-orange-300 transition-all duration-200"
+                class="group-hover:animate-bounce size-6 group-hover:text-white transition-all duration-300"
             />
-            <span>Learn more</span>
+            <span>Learn More</span>
         </button>
     </section>
     <Separator />
     <section
         use:scrollRef={"whatIDo"}
-        class="min-h-svh flex flex-col items-center justify-center gap-10 px-8 py-8 pt-22"
+        class="min-h-svh flex flex-col items-center justify-center gap-12 px-4 md:px-8 py-12"
     >
-        <h1 class="text-4xl">🔨 What I do</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 max-w-5xl gap-8">
-            {#each whatIDo as item}
-                <div
-                    class="p-4 border border-gray-600 rounded-lg hover:border-orange-300 transition-all duration-200 hover:shadow-md hover:shadow-orange-300 hover:scale-[102%] flex flex-col gap-2 size-fit"
+        <h1
+            class="text-4xl md:text-5xl font-bold tracking-tight animate-slide-up"
+        >
+            🔨 What I Do
+        </h1>
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl gap-6"
+        >
+            {#each whatIDo as item, index}
+                <Saos
+                    animation={"fade-in 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both"}
+                    animation_out={"fade-out 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both"}
+                    top={200}
+                    bottom={200}
                 >
-                    <h2 class="text-xl font-semibold">{item.name}</h2>
-                    <p class="text-gray-300">{item.description}</p>
-                    <div class="mt-2 flex flex-wrap gap-2">
-                        {#each item.tags as tag}
-                            <span
-                                class="bg-gray-700 text-gray-300 px-2 py-1 rounded-full text-sm"
-                                >{tag}</span
-                            >
-                        {/each}
+                    <div
+                        class="p-6 bg-gray-800/50 backdrop-blur-sm border border-gray-600 rounded-xl hover:border-orange-400 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/30 hover:scale-[102%] flex flex-col gap-4"
+                        style="animation-delay: {index * 100}ms"
+                    >
+                        <h2 class="text-2xl font-semibold text-orange-400">
+                            {item.name}
+                        </h2>
+                        <p class="text-gray-200 leading-relaxed">
+                            {item.description}
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            {#each item.tags as tag}
+                                <span
+                                    class="bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-orange-500/30 transition-colors duration-200"
+                                    >{tag}</span
+                                >
+                            {/each}
+                        </div>
                     </div>
-                </div>
+                </Saos>
             {/each}
         </div>
     </section>
     <Separator />
     <section
-        class="min-h-svh flex flex-col items-center justify-center gap-10 px-8 py-8 pt-22"
+        class="min-h-svh flex flex-col items-center justify-center gap-12 px-4 md:px-8 py-12"
     >
-        <h1 class="text-4xl">📂 Projects</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 max-w-5xl gap-8">
-            {#each projects as project}
-                <a
-                    href={project.url}
-                    class="p-4 border border-gray-600 rounded-lg hover:border-orange-300 transition-all duration-200 hover:shadow-md hover:shadow-orange-300 hover:scale-[102%] flex flex-col gap-2"
+        <h1
+            class="text-4xl md:text-5xl font-bold tracking-tight animate-slide-up"
+        >
+            📂 Projects
+        </h1>
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl gap-6"
+        >
+            {#each projects as project, index}
+                <Saos
+                    animation={"fade-in 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both"}
+                    animation_out={"fade-out 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both"}
+                    top={200}
+                    bottom={200}
                 >
-                    <h2 class="text-xl font-semibold flex gap-1">
-                        <ArrowUpLeft class="size-5" />{project.name}
-                    </h2>
-                    <p class="text-gray-300">{project.description}</p>
-                    <div class="mt-2 flex flex-wrap gap-2">
-                        {#each project.tags as tag}
-                            <span
-                                class="bg-gray-700 text-gray-300 px-2 py-1 rounded-full text-sm"
-                                >{tag}</span
-                            >
-                        {/each}
-                    </div>
-                </a>
+                    <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="p-6 bg-gray-800/50 backdrop-blur-sm border border-gray-600 rounded-xl hover:border-orange-400 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/30 hover:scale-[102%] flex flex-col gap-4"
+                        style="animation-delay: {index * 100}ms"
+                    >
+                        <h2
+                            class="text-2xl font-semibold text-orange-400 flex gap-2 items-center"
+                        >
+                            <ArrowUpLeft
+                                class="size-6 text-orange-400"
+                            />{project.name}
+                        </h2>
+                        <p class="text-gray-200 leading-relaxed">
+                            {project.description}
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            {#each project.tags as tag}
+                                <span
+                                    class="bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-orange-500/30 transition-colors duration-200"
+                                    >{tag}</span
+                                >
+                            {/each}
+                        </div>
+                    </a>
+                </Saos>
             {/each}
         </div>
     </section>
+    <Separator />
+    <section
+        class="min-h-svh flex flex-col items-center justify-center gap-12 px-4 md:px-8 py-12"
+    >
+        <h1
+            class="text-4xl md:text-5xl font-bold tracking-tight animate-slide-up"
+        >
+            ✉️ Contact Me
+        </h1>
+        <div class="flex flex-col items-center gap-4 text-gray-200">
+            <p class="text-lg md:text-xl">
+                Feel free to reach out to me via email at
+                <a
+                    href="mailto:contact@javier.ie"
+                    class="text-orange-400 hover:underline"
+                >
+                    contact@javier.ie
+                </a>
+            </p>
+        </div>
+    </section>
 </main>
+
+<style>
+    @keyframes -global-fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes -global-fade-out {
+        from {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes slide-up {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in {
+        animation: fade-in 0.8s ease-out forwards;
+    }
+    .animate-slide-up {
+        animation: slide-up 0.8s ease-out forwards;
+    }
+</style>
