@@ -1,118 +1,117 @@
 <script lang="ts">
-    import { scrollTo, scrollRef } from "svelte-scrolling";
-    import Saos from "saos";
-    import { ArrowDown, ArrowUpLeft } from "@lucide/svelte";
-    import NavBar from "./lib/NavBar.svelte";
-    import Separator from "./lib/Separator.svelte";
-    import Wave from "./lib/Wave.svelte";
-    import CatShove from "./lib/CatShove.svelte";
+import { ArrowDown, ArrowUpLeft } from "@lucide/svelte";
+import Saos from "saos";
+import { scrollRef, scrollTo } from "svelte-scrolling";
+import CatShove from "./lib/CatShove.svelte";
+import NavBar from "./lib/NavBar.svelte";
+import Separator from "./lib/Separator.svelte";
+import Wave from "./lib/Wave.svelte";
 
-    type CardItem = {
-        name: string;
-        description: string;
-        tags: string[];
-    };
+type CardItem = {
+    name: string;
+    description: string;
+    tags: string[];
+};
 
-    const whatIDo: CardItem[] = [
-        {
-            name: "🕵️ Pentesting",
-            description:
-                "I perform penetration tests on web applications, APIs, and networks to identify vulnerabilities and help secure systems.",
-            tags: ["Linux", "Windows", "Web", "Forensics", "Rev"],
-        },
-        {
-            name: "🖥️ Development",
-            description:
-                "I develop web applications and APIs using modern technologies.",
-            tags: ["Typescript", "React", "Next.js", "tRPC", "Go", "Rust"],
-        },
-        {
-            name: "📚 Learning",
-            description:
-                "I'm always learning new things, whether it's a new technology, a new programming language, or a new skill.",
-            tags: ["AI", "Physics", "Math", "Hardware"],
-        },
-        {
-            name: "🎮 Skills",
-            description:
-                "I have experience with a variety of tools and technologies that help me in my work and personal projects, as well as social skills to go along with it.",
-            tags: [
-                "Leadership",
-                "Communication",
-                "Teamwork",
-                "Problem Solving",
-                "Time Management",
-                "Adaptability",
-            ],
-        },
-    ];
+const whatIDo: CardItem[] = [
+    {
+        name: "🕵 Pentesting",
+        description:
+            "I perform penetration tests on web applications, APIs, and networks to identify vulnerabilities and help secure systems.",
+        tags: ["Linux", "Windows", "Web", "Forensics", "Rev"],
+    },
+    {
+        name: "🖥 Development",
+        description:
+            "I develop web applications and APIs using modern technologies.",
+        tags: ["Typescript", "React", "Next.js", "tRPC", "Go", "Rust"],
+    },
+    {
+        name: "📚 Learning",
+        description:
+            "I'm always learning new things, whether it's a new technology, a new programming language, or a new skill.",
+        tags: ["AI", "Physics", "Math", "Hardware"],
+    },
+    {
+        name: "🎮 Skills",
+        description:
+            "I have experience with a variety of tools and technologies that help me in my work and personal projects, as well as social skills to go along with it.",
+        tags: [
+            "Leadership",
+            "Communication",
+            "Teamwork",
+            "Problem Solving",
+            "Time Management",
+            "Adaptability",
+        ],
+    },
+];
 
-    const projects: (CardItem & { url: string })[] = [
-        {
-            name: "LC Computer Science",
-            description:
-                "A website to help students with their leaving certificate computer science subject.",
-            tags: ["React", "Next.js", "tRPC", "PostgreSQL", "BetterAuth"],
-            url: "https://github.com/CaraTortu/lccomputerscience",
-        },
-        {
-            name: "GP Booking system",
-            description:
-                "A booking system for a GP practice that allows patients to book appointments online and receive reminders, as well as allowing doctors to manage their appointments.",
-            tags: ["React", "Next.js", "tRPC", "PostgreSQL", "BetterAuth"],
-            url: "https://github.com/CaraTortu/appointment_system",
-        },
-        {
-            name: "QuoteLearner",
-            description:
-                "A website for students to learn quotes for their exams.",
-            tags: ["React", "Next.js", "tRPC", "PostgreSQL", "BetterAuth"],
-            url: "https://github.com/CaraTortu/quotelearner",
-        },
-        {
-            name: "Sentiment Analyser",
-            description:
-                "An application powered by a custom AI model that uses sentiment analysis to predict relationships between people through email conversations.",
-            tags: [
-                "TensorFlow",
-                "PostgreSQL",
-                "Rust",
-                "Neo4J",
-                "Python",
-                "Next.js",
-            ],
-            url: "https://github.com/CaraTortu/SentimentAnalyser",
-        },
-    ];
+const projects: (CardItem & { url: string })[] = [
+    {
+        name: "LC Computer Science",
+        description:
+            "A website to help students with their leaving certificate computer science subject.",
+        tags: ["React", "Next.js", "tRPC", "PostgreSQL", "BetterAuth"],
+        url: "https://github.com/CaraTortu/lccomputerscience",
+    },
+    {
+        name: "GP Booking system",
+        description:
+            "A booking system for a GP practice that allows patients to book appointments online and receive reminders, as well as allowing doctors to manage their appointments.",
+        tags: ["React", "Next.js", "tRPC", "PostgreSQL", "BetterAuth"],
+        url: "https://github.com/CaraTortu/appointment_system",
+    },
+    {
+        name: "QuoteLearner",
+        description: "A website for students to learn quotes for their exams.",
+        tags: ["React", "Next.js", "tRPC", "PostgreSQL", "BetterAuth"],
+        url: "https://github.com/CaraTortu/quotelearner",
+    },
+    {
+        name: "Sentiment Analyser",
+        description:
+            "An application powered by a custom AI model that uses sentiment analysis to predict relationships between people through email conversations.",
+        tags: [
+            "TensorFlow",
+            "PostgreSQL",
+            "Rust",
+            "Neo4J",
+            "Python",
+            "Next.js",
+        ],
+        url: "https://github.com/CaraTortu/SentimentAnalyser",
+    },
+];
 </script>
 
 <main
-    class="flex flex-col min-h-screen bg-gradient-to-b from-gray-900 to-black text-white items-center select-none font-sans"
+    class="flex flex-col items-center min-h-screen font-sans text-white bg-gradient-to-b from-gray-900 to-black select-none"
 >
     <div class="sticky top-0 z-50 w-full">
         <NavBar />
     </div>
     <CatShove />
     <section
-        class="h-svh flex flex-col items-center justify-center gap-6 px-4 md:px-8 text-center"
+        class="flex flex-col gap-6 justify-center items-center px-4 text-center md:px-8 h-svh"
     >
         <h1
-            class="text-4xl md:text-6xl font-extrabold tracking-tight animate-fade-in"
+            class="text-4xl font-extrabold tracking-tight md:text-6xl animate-fade-in"
         >
             <Wave /> Hi, I'm Javier
         </h1>
         <p
-            class="italic text-lg md:text-2xl text-gray-200 max-w-2xl leading-relaxed"
+            class="max-w-2xl text-lg italic leading-relaxed text-gray-200 md:text-2xl"
         >
             I'm a software engineer and cyber security researcher based in
             Ireland.
         </p>
         <button
             use:scrollTo={"whatIDo"}
-            class="rounded-full bg-orange-500 text-white px-6 py-3 flex gap-3 items-center justify-center group mt-6 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/50 hover:-translate-y-1 transition-all duration-300 text-lg font-medium"
+            class="flex gap-3 justify-center items-center py-3 px-6 mt-6 text-lg font-medium text-white bg-orange-500 rounded-full transition-all duration-300 hover:bg-orange-600 hover:shadow-lg hover:-translate-y-1 group hover:shadow-orange-500/50"
         >
             <ArrowDown
-                class="group-hover:animate-bounce size-6 group-hover:text-white transition-all duration-300"
+                class="transition-all duration-300 group-hover:text-white group-hover:animate-bounce size-6"
             />
             <span>Learn More</span>
         </button>
@@ -120,15 +119,15 @@
     <Separator />
     <section
         use:scrollRef={"whatIDo"}
-        class="min-h-svh flex flex-col items-center justify-center gap-12 px-4 md:px-8 py-12"
+        class="flex flex-col gap-12 justify-center items-center py-12 px-4 md:px-8 min-h-svh"
     >
         <h1
-            class="text-4xl md:text-5xl font-bold tracking-tight animate-slide-up"
+            class="text-4xl font-bold tracking-tight md:text-5xl animate-slide-up"
         >
             🔨 What I Do
         </h1>
         <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl gap-6"
+            class="grid grid-cols-1 gap-6 max-w-6xl sm:grid-cols-2 lg:grid-cols-3"
         >
             {#each whatIDo as item, index}
                 <Saos
@@ -144,13 +143,13 @@
                         <h2 class="text-2xl font-semibold text-orange-400">
                             {item.name}
                         </h2>
-                        <p class="text-gray-200 leading-relaxed">
+                        <p class="leading-relaxed text-gray-200">
                             {item.description}
                         </p>
-                        <div class="mt-4 flex flex-wrap gap-2">
+                        <div class="flex flex-wrap gap-2 mt-4">
                             {#each item.tags as tag}
                                 <span
-                                    class="bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-orange-500/30 transition-colors duration-200"
+                                    class="py-1 px-3 text-sm font-medium text-orange-300 rounded-full transition-colors duration-200 bg-orange-500/20 hover:bg-orange-500/30"
                                     >{tag}</span
                                 >
                             {/each}
@@ -162,15 +161,15 @@
     </section>
     <Separator />
     <section
-        class="min-h-svh flex flex-col items-center justify-center gap-12 px-4 md:px-8 py-12"
+        class="flex flex-col gap-12 justify-center items-center py-12 px-4 md:px-8 min-h-svh"
     >
         <h1
-            class="text-4xl md:text-5xl font-bold tracking-tight animate-slide-up"
+            class="text-4xl font-bold tracking-tight md:text-5xl animate-slide-up"
         >
             📂 Projects
         </h1>
         <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl gap-6"
+            class="grid grid-cols-1 gap-6 max-w-6xl sm:grid-cols-2 lg:grid-cols-3"
         >
             {#each projects as project, index}
                 <Saos
@@ -187,19 +186,20 @@
                         style="animation-delay: {index * 100}ms"
                     >
                         <h2
-                            class="text-2xl font-semibold text-orange-400 flex gap-2 items-center"
+                            class="flex gap-2 items-center text-2xl font-semibold text-orange-400"
                         >
                             <ArrowUpLeft
-                                class="size-6 text-orange-400"
-                            />{project.name}
+                                class="text-orange-400 size-6"
+                            />
+                            <span>{project.name}</span>
                         </h2>
-                        <p class="text-gray-200 leading-relaxed">
+                        <p class="leading-relaxed text-gray-200">
                             {project.description}
                         </p>
-                        <div class="mt-4 flex flex-wrap gap-2">
+                        <div class="flex flex-wrap gap-2 mt-4">
                             {#each project.tags as tag}
                                 <span
-                                    class="bg-orange-500/20 text-orange-300 px-3 py-1 rounded-full text-sm font-medium hover:bg-orange-500/30 transition-colors duration-200"
+                                    class="py-1 px-3 text-sm font-medium text-orange-300 rounded-full transition-colors duration-200 bg-orange-500/20 hover:bg-orange-500/30"
                                     >{tag}</span
                                 >
                             {/each}
@@ -211,14 +211,14 @@
     </section>
     <Separator />
     <section
-        class="min-h-svh flex flex-col items-center justify-center gap-12 px-4 md:px-8 py-12"
+        class="flex flex-col gap-12 justify-center items-center py-12 px-4 md:px-8 min-h-svh"
     >
         <h1
-            class="text-4xl md:text-5xl font-bold tracking-tight animate-slide-up"
+            class="text-4xl font-bold tracking-tight md:text-5xl animate-slide-up"
         >
-            ✉️ Contact Me
+            ✉ Contact Me
         </h1>
-        <div class="flex flex-col items-center gap-4 text-gray-200">
+        <div class="flex flex-col gap-4 items-center px-4 text-center text-gray-200">
             <p class="text-lg md:text-xl">
                 Feel free to reach out to me via email at
                 <a
